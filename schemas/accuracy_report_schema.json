@@ -1,0 +1,18 @@
+{
+  "planted_anomalies": 15,
+  "detected_correctly": 0,
+  "missed": 0,
+  "false_positives": 0,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1_score": 0.0,
+  "missed_anomalies": ["PLANTED-003", "PLANTED-011"],
+  "false_positive_details": [
+    {
+      "anomaly_id": "ANO-009",
+      "shipment_id": "SHP-2025-0301",
+      "why_flagged": "...",
+      "why_its_actually_fine": "..."
+    }
+  ]
+}

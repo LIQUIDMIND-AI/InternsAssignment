@@ -1,0 +1,12 @@
+Column,Type,Description,Example
+product_id,string,Unique ID,PROD-001
+product_description,string,Full description,Cotton T-shirts 100% knitted
+hs_code,string,Correct 8-digit HS code,61091000
+hs_chapter,string,2-digit chapter,61
+category,string,"Textiles, Auto Parts, Chemicals, Machinery, Food Products, Handicrafts",Textiles
+avg_unit_price_usd,float,Typical price,4.50
+price_range_min,float,Lowest normal price,3.50
+price_range_max,float,Highest normal price,6.00
+drawback_rate_pct,float,Government drawback %,2.0
+weight_per_unit_kg,float,For freight calculations,0.25
+restricted_countries,string,"Countries where export restricted (comma-separated, empty if none)","""North Korea,Iran"""

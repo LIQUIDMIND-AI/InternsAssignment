@@ -1,0 +1,28 @@
+Column,Type,Description,Example
+shipment_id,string,Unique ID,SHP-2025-0342
+date,date,"Shipment date, spread across Sep 2025 - Feb 2026",2025-11-15
+buyer_name,string,8-10 unique buyers,Global Mart Inc
+buyer_country,string,"From list: USA, Germany, UK, UAE, Australia, Japan, Singapore, South Africa, Brazil, Netherlands, Canada, France, Sri Lanka, Bangladesh, Kenya",USA
+product_description,string,From product catalog (Table 3),Cotton T-shirts 100% knitted
+hs_code,string,"8-digit code, from product catalog",61091000
+quantity,int,Units shipped,5000
+unit_price_usd,float,Price per unit,4.50
+total_fob_usd,float,Total value (should = qty × unit_price),22500.00
+currency,string,Always USD,USD
+freight_cost_usd,float,Shipping cost,1800.00
+insurance_usd,float,~0.2% of FOB typically,45.00
+incoterm,string,"One of: FOB, CIF, EXW, CFR",FOB
+port_of_loading,string,"One of: INMUN1 (Mundra), INNSA1 (Nhava Sheva/JNPT), INMAA1 (Chennai), INBLR4 (Bangalore ICD)",INMUN1
+port_of_discharge,string,"Realistic port for buyer_country (e.g., USLAX, DEHAM, GBFXT, AEJEA, AUMEL)",USLAX
+shipping_line,string,"One of: Maersk, MSC, CMA CGM, Hapag-Lloyd, ONE",Maersk
+container_type,string,"20ft, 40ft, 40ft HC",40ft HC
+transit_days,int,Realistic for the route,28
+vessel_name,string,Made-up but realistic,MSC Aurora
+customs_status,string,"approved (85%), rejected (5%), pending (10%)",approved
+drawback_rate_pct,float,From product catalog,2.0
+drawback_amount_usd,float,FOB × drawback_rate / 100,450.00
+payment_terms,string,"Advance, LC 30 days, LC 60 days, LC 90 days, Open Account 45 days",LC 60 days
+payment_status,string,"received, partial, pending, overdue",received
+days_to_payment,int,Days from shipment to payment (null if pending),45
+freight_forwarder,string,"One of: DHL Global, Kuehne Nagel, DB Schenker, Expeditors, Allcargo",DHL Global
+cha_name,string,"One of: ABC Customs, XYZ Clearing, TradeEase CHA",ABC Customs

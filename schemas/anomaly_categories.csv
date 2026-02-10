@@ -1,0 +1,7 @@
+#,Category,What to Plant (at least 2 per category)
+1,Pricing,"Shipments where total_fob ≠ quantity × unit_price. Unit prices way outside the normal range for that product. A buyer consistently getting prices below range (suspicious discounting)."
+2,Compliance,"HS code that doesn't match the product category (e.g., textile product with electronics HS code). Drawback claimed on a rejected shipment. Shipment to a restricted country for that product."
+3,Route & Logistics,"Transit days way outside normal range for that route. Freight cost 3-4x higher than route average. Illogical port pairing (e.g., Bangalore ICD loading for a Sri Lanka shipment when Chennai is closer)."
+4,Payment,"A usually punctual buyer suddenly taking 3x longer to pay. Payment marked received but days_to_payment is null or 0. Overdue payment beyond terms + 30 days buffer."
+5,Volume,"A buyer whose orders suddenly spike 5-10x their average. A month with abnormally high/low shipments to one country."
+6,Cross-field,"Insurance calculated as 2% of FOB instead of ~0.2% (10x error). CIF incoterm but freight_cost is 0. Container type too small for the shipment weight (based on quantity × weight_per_unit)."

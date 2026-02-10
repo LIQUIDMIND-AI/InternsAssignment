@@ -1,0 +1,42 @@
+{
+  "analysis_summary": {
+    "total_shipments_analyzed": 500,
+    "anomalies_detected": 18,
+    "by_severity": {
+      "critical": 0,
+      "warning": 0,
+      "info": 0
+    },
+    "by_category": {
+      "pricing": 0,
+      "compliance": 0,
+      "route": 0,
+      "payment": 0,
+      "volume": 0,
+      "cross_field": 0
+    },
+    "by_detection_layer": {
+      "rule_based": 0,
+      "statistical": 0,
+      "llm_semantic": 0
+    }
+  },
+  "anomalies": [
+    {
+      "anomaly_id": "ANO-001",
+      "shipment_id": "SHP-2025-0127",
+      "category": "compliance",
+      "severity": "critical | warning | info",
+      "detection_layer": "rule_based | statistical | llm_semantic",
+      "description": "Human-readable description of what's wrong",
+      "evidence": {
+        "field": "hs_code",
+        "actual_value": "84713000",
+        "expected_value_or_range": "6109xxxx",
+        "reference_data": "Product catalog shows HS 61091000 for Cotton T-shirts"
+      },
+      "business_impact": "What could go wrong if this isn't fixed",
+      "recommended_action": "What should the operations team do"
+    }
+  ]
+}

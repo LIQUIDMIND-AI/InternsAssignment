@@ -1,0 +1,9 @@
+Column,Type,Description,Example
+port_of_loading,string,Indian port code,INMUN1
+port_of_discharge,string,Destination port code,USLAX
+avg_transit_days,int,Normal transit time,28
+transit_range_min,int,Fastest,24
+transit_range_max,int,Slowest,35
+avg_freight_20ft_usd,float,Average cost for 20ft container,1200.00
+avg_freight_40ft_usd,float,Average cost for 40ft container,1800.00
+avg_freight_40hc_usd,float,Average cost for 40ft HC,2000.00

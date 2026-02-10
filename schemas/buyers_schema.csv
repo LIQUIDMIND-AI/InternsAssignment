@@ -1,0 +1,8 @@
+Column,Type,Description,Example
+buyer_name,string,Unique buyer,Global Mart Inc
+buyer_country,string,Primary country,USA
+relationship_since,date,When they became a customer,2022-03-15
+avg_order_value_usd,float,Historical average,25000.00
+avg_payment_days,int,How fast they usually pay,35
+credit_rating,string,"A, B, C",A
+total_shipments_historical,int,Total past shipments,145

@@ -1,0 +1,9 @@
+[
+  {
+    "anomaly_id": "PLANTED-001",
+    "shipment_id": "SHP-2025-0127",
+    "category": "compliance",
+    "description": "HS code 84713000 (computers) assigned to Cotton T-shirts",
+    "why_this_matters": "Wrong HS code leads to wrong duty calculation and potential customs penalty of ₹50K-₹2L"
+  }
+]

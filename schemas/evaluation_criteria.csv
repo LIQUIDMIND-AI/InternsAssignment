@@ -1,0 +1,7 @@
+Criteria,Weight,What We're Looking For
+Does it run?,15%,"Can we clone the repo, install deps, and run it? Is it deployed and accessible?"
+Data quality,15%,"Are the synthetic data and planted anomalies realistic and creative? Do they show trade domain understanding?"
+Detection accuracy,20%,"Does it catch its own planted anomalies? What's the precision/recall? Are false positives handled?"
+System architecture,20%,"Is the 3-layer design well-thought-out? Right tool for the right job? Cost-efficient LLM usage?"
+Design Decisions doc,20%,"This is where we see if you UNDERSTOOD what you built or just pasted until it worked."
+Deployment & UI,10%,"Is it deployed? Is the dashboard usable? Does 'Run Analysis' actually work?"
