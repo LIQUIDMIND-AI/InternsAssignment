@@ -82,6 +82,17 @@ Things that need reasoning:
 
 **Key constraint:** You should NOT send all 500 rows to the LLM. That's expensive, slow, and lazy. Only send what Layers 1 and 2 can't handle. **Document how many LLM calls your system makes and why.**
 
+#### Recommended Free LLM Providers:
+
+- **[OpenRouter](https://openrouter.ai)** - Access to multiple models (GPT, Claude, Llama, etc.), free tier available
+- **[Groq](https://groq.com)** - Ultra-fast inference with Llama models, generous free tier
+- **[Together AI](https://together.ai)** - Open-source models, free credits for new users
+- **[Hugging Face Inference API](https://huggingface.co/inference-api)** - Free tier for open models
+- **GitHub Models** - Free access to various models for GitHub users
+- **Google AI Studio** - Free Gemini API access
+
+**Track your usage:** Create an `llm_usage_report.json` with total calls, tokens used, estimated cost, and breakdown by detection type.
+
 ---
 
 ## Output
@@ -104,6 +115,12 @@ Use an LLM to generate a **1-page executive summary** from the anomaly report. W
 Compare your system's detected anomalies against your `planted_anomalies.json`:
 
 > **Full schema:** [`schemas/accuracy_report_schema.json`](schemas/accuracy_report_schema.json)
+
+### 4. LLM Usage Report (`llm_usage_report.json`)
+
+Track all LLM API calls made during the analysis:
+
+> **Full schema:** [`schemas/llm_usage_report_schema.json`](schemas/llm_usage_report_schema.json)
 
 ---
 
@@ -152,7 +169,8 @@ your-submission/
 ├── output/
 │   ├── anomaly_report.json
 │   ├── executive_summary.md
-│   └── accuracy_report.json
+│   ├── accuracy_report.json
+│   └── llm_usage_report.json     # LLM API calls & token usage
 ├── DESIGN_DECISIONS.md
 ├── requirements.txt
 └── README.md                     # Setup + deployed URL
@@ -192,7 +210,7 @@ Answer these questions. Be honest. Short answers are fine if they're clear.
 
 **But here's what we'll check:**
 
-We will ask you to **walk us through your code in a 15-minute call**. We'll ask things like:
+We will ask you to **walk us through your code in a 30-minute call**. We'll ask things like:
 
 - *"Why did you use IQR instead of Z-scores here?"*
 - *"What does this prompt do and why did you structure it this way?"*

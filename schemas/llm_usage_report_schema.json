@@ -1,0 +1,31 @@
+{
+  "provider": "OpenRouter/Groq/Together AI/HuggingFace/GitHub Models/Google AI Studio",
+  "model": "llama-3.1-70b / gpt-4o-mini / gemini-1.5-flash / etc",
+  "total_calls": 45,
+  "total_tokens": {
+    "input": 12500,
+    "output": 3200,
+    "total": 15700
+  },
+  "estimated_cost_usd": 0.15,
+  "breakdown_by_task": {
+    "hs_code_validation": {
+      "calls": 15,
+      "tokens": 4500,
+      "description": "Validating HS codes match product descriptions"
+    },
+    "pattern_analysis": {
+      "calls": 25,
+      "tokens": 8000,
+      "description": "Cross-shipment pattern analysis for buyers"
+    },
+    "executive_summary": {
+      "calls": 1,
+      "tokens": 3200,
+      "description": "Generating executive summary from anomaly report"
+    }
+  },
+  "avg_latency_ms": 850,
+  "timestamp": "2026-02-10T10:30:00Z",
+  "notes": "Additional context about API usage, rate limits encountered, etc."
+}
