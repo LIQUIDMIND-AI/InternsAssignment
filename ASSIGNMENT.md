@@ -1,6 +1,6 @@
 # The Assignment: "Trade Shipment Anomaly Detective"
 
-#### You MAY use AI tools (ChatGPT, Copilot, Claude, etc.) — but read the [note at the bottom](#-a-note-on-using-ai).
+#### You MAY use AI tools (ChatGPT, Copilot, Claude, etc.) — but read fully!
 
 ---
 
@@ -46,18 +46,6 @@ Your data generator must inject **at least 15 anomalies** across these 6 categor
 
 > **Example format:** [`schemas/planted_anomalies_example.json`](schemas/planted_anomalies_example.json)
 
-```json
-[
-  {
-    "anomaly_id": "PLANTED-001",
-    "shipment_id": "SHP-2025-0127",
-    "category": "compliance",
-    "description": "HS code 84713000 (computers) assigned to Cotton T-shirts",
-    "why_this_matters": "Wrong HS code leads to wrong duty calculation and potential customs penalty of ₹50K-₹2L"
-  }
-]
-```
-
 ---
 
 ## What You Must Build
@@ -102,36 +90,6 @@ Things that need reasoning:
 
 > **Full schema:** [`schemas/anomaly_report_schema.json`](schemas/anomaly_report_schema.json)
 
-```json
-{
-  "analysis_summary": {
-    "total_shipments_analyzed": 500,
-    "anomalies_detected": 18,
-    "by_severity": {"critical": 0, "warning": 0, "info": 0},
-    "by_category": {"pricing": 0, "compliance": 0, "route": 0, "payment": 0, "volume": 0, "cross_field": 0},
-    "by_detection_layer": {"rule_based": 0, "statistical": 0, "llm_semantic": 0}
-  },
-  "anomalies": [
-    {
-      "anomaly_id": "ANO-001",
-      "shipment_id": "SHP-2025-0127",
-      "category": "compliance",
-      "severity": "critical | warning | info",
-      "detection_layer": "rule_based | statistical | llm_semantic",
-      "description": "Human-readable description of what's wrong",
-      "evidence": {
-        "field": "hs_code",
-        "actual_value": "84713000",
-        "expected_value_or_range": "6109xxxx",
-        "reference_data": "Product catalog shows HS 61091000 for Cotton T-shirts"
-      },
-      "business_impact": "What could go wrong if this isn't fixed",
-      "recommended_action": "What should the operations team do"
-    }
-  ]
-}
-```
-
 ### 2. Executive Summary (`executive_summary.md`)
 
 Use an LLM to generate a **1-page executive summary** from the anomaly report. Written for a non-technical Operations Head. Should include:
@@ -146,27 +104,6 @@ Use an LLM to generate a **1-page executive summary** from the anomaly report. W
 Compare your system's detected anomalies against your `planted_anomalies.json`:
 
 > **Full schema:** [`schemas/accuracy_report_schema.json`](schemas/accuracy_report_schema.json)
-
-```json
-{
-  "planted_anomalies": 15,
-  "detected_correctly": 0,
-  "missed": 0,
-  "false_positives": 0,
-  "precision": 0.0,
-  "recall": 0.0,
-  "f1_score": 0.0,
-  "missed_anomalies": ["PLANTED-003", "PLANTED-011"],
-  "false_positive_details": [
-    {
-      "anomaly_id": "ANO-009",
-      "shipment_id": "SHP-2025-0301",
-      "why_flagged": "...",
-      "why_its_actually_fine": "..."
-    }
-  ]
-}
-```
 
 ---
 
@@ -188,6 +125,8 @@ Deploy the complete system as a **live, accessible web app**. Use any free platf
 5. Have a **"Run Analysis"** button that re-runs the detection pipeline (so we can see it's not just hardcoded output)
 
 **Bonus (optional but impressive):** Allow uploading a different CSV and running the analysis on new data.
+
+**Tip:** For rapid frontend development, consider using AI-powered tools like [Lovable](https://lovable.dev), [Bolt](https://bolt.new), or [v0](https://v0.dev) to accelerate your UI development.
 
 **Submit the live URL.**
 
