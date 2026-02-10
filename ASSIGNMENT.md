@@ -16,20 +16,20 @@ You work for an Indian exporter that does **200+ shipments/month** to 15 countri
 
 You don't have real data. You'll **generate synthetic data** using a Python script. This is Part 1 of the assignment.
 
-### Table 1: `shipments.csv` (500 rows)
+### Table 1: `shipments.csv` (250 rows)
 
 > **Schema definition:** [`schemas/shipments_schema.csv`](schemas/shipments_schema.csv)
 
-### Table 2: `buyers.csv` (8-10 rows)
+### Table 2: `buyers.csv` (5-6 rows)
 
 > **Schema definition:** [`schemas/buyers_schema.csv`](schemas/buyers_schema.csv)
 
 
-### Table 3: `product_catalog.csv` (15-20 rows)
+### Table 3: `product_catalog.csv` (10-12 rows)
 
 > **Schema definition:** [`schemas/product_catalog_schema.csv`](schemas/product_catalog_schema.csv)
 
-### Table 4: `routes.csv` (20-25 rows)
+### Table 4: `routes.csv` (12-15 rows)
 
 > **Schema definition:** [`schemas/routes_schema.csv`](schemas/routes_schema.csv)
 
@@ -38,7 +38,7 @@ You don't have real data. You'll **generate synthetic data** using a Python scri
 
 ## What You Must Plant in the Data
 
-Your data generator must inject **at least 15 anomalies** across these 6 categories. **You decide the specifics** — be creative and make them realistic.
+Your data generator must inject **at least 10 anomalies** across these 6 categories (1-2 per category). **You decide the specifics** — be creative and make them realistic.
 
 > **Full anomaly category definitions:** [`schemas/anomaly_categories.csv`](schemas/anomaly_categories.csv)
 
@@ -70,15 +70,15 @@ Anomalies that need data analysis:
 - Payment behavior change per buyer (compare `days_to_payment` against `avg_payment_days` from buyers table)
 - Volume spikes per buyer or per country per month
 
-**You choose the statistical method.** Z-scores, IQR, rolling averages, Isolation Forest, whatever you think fits. **Justify your choice.**
+**You choose ONE statistical method.** Pick Z-scores, IQR, or Isolation Forest — whichever you think fits best. **Justify your choice in DESIGN_DECISIONS.md.**
 
 ### Layer 3: LLM-Powered Detection
 
 Things that need reasoning:
 
 - HS code vs. product description mismatch (ask the LLM: "Does HS code 84713000 correctly classify 'Cotton T-shirts 100% knitted'?")
-- Cross-shipment pattern analysis (feed the LLM a buyer's recent shipments and ask: "Do you see any concerning patterns?")
 - Generate the executive summary (see Output section)
+- **Optional bonus:** Cross-shipment pattern analysis (feed the LLM a buyer's recent shipments and ask about patterns)
 
 **Key constraint:** You should NOT send all 500 rows to the LLM. That's expensive, slow, and lazy. Only send what Layers 1 and 2 can't handle. **Document how many LLM calls your system makes and why.**
 
@@ -126,12 +126,18 @@ Track all LLM API calls made during the analysis:
 
 ## Deployment
 
-Deploy the complete system as a **live, accessible web app**. Use any free platform:
+Deploy the complete system in ONE of these ways:
 
+**Option A - Live Deployment (Recommended):**
 - **Streamlit Community Cloud** (free, easiest)
 - **Hugging Face Spaces** (free)
 - **Render / Railway** (free tier)
-- **Any other** platform you prefer
+- Any other free platform
+
+**Option B - Local Demo:**
+- Record a 2-3 minute video demonstrating your working app locally
+- Share via Loom/YouTube (unlisted link)
+- Include setup instructions in README
 
 ### The deployed app must:
 
@@ -141,11 +147,9 @@ Deploy the complete system as a **live, accessible web app**. Use any free platf
 4. Display the **executive summary**
 5. Have a **"Run Analysis"** button that re-runs the detection pipeline (so we can see it's not just hardcoded output)
 
-**Bonus (optional but impressive):** Allow uploading a different CSV and running the analysis on new data.
-
 **Tip:** For rapid frontend development, consider using AI-powered tools like [Lovable](https://lovable.dev), [Bolt](https://bolt.new), or [v0](https://v0.dev) to accelerate your UI development.
 
-**Submit the live URL.**
+**Submit either the live URL or video demo link.**
 
 ---
 
@@ -184,17 +188,13 @@ Answer these questions. Be honest. Short answers are fine if they're clear.
 
 1. **What anomalies did you plant and why?** Why are they realistic? What would each one cost an exporter if it went undetected?
 
-2. **What statistical method(s) did you use in Layer 2 and why?** What did you consider and reject?
+2. **What statistical method did you use in Layer 2 and why?** What did you consider and why did you pick this one?
 
 3. **What exactly did you send to the LLM?** How many calls? What was the total token usage / cost? Why did you draw the line between Layer 2 and Layer 3 where you did?
 
 4. **Show one prompt that didn't work** and explain how you iterated to fix it. Include the bad prompt, what it got wrong, and the improved version.
 
 5. **What are your precision and recall numbers?** Why did the system miss what it missed? Why did it false-positive what it false-positived?
-
-6. **What are 3 anomaly types your system CAN'T catch** but would matter in real trade? How would you solve them with more time/data?
-
-7. **If this ran on 50,000 shipments instead of 500**, what breaks? What would you change architecturally?
 
 ---
 
